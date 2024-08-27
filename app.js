@@ -1,6 +1,6 @@
 const express = require('express')
 require('dotenv').config()   //yo code chai jun project ma ni rakhda hunxa
-const { blogs } = require('./model/index')
+const { blogs,forms } = require('./model/index')
 const app = express()
 
 app.use(express.urlencoded({extended: true}))  //node bata front banauda yo code rakhnu parxa jailey like ejs use gare vane
@@ -18,13 +18,27 @@ app.get("/create",(req,res)=>{
 
 app.post('/create',async(req,res)=>{
     const {title,subtitle,description} = req.body
-     await blogs.create({
+      await blogs.create({
         title : title,
         subtitle : subtitle,
         description : description
     })
     res.send("blog added successfully")
     
+})
+
+app.get("/form",(req,res)=>{
+    res.render('form.ejs')
+})
+
+app.post('/form',async(req,res)=>{
+     const{firstname,lastname,gmail} =req.body
+      await forms.create({
+        firstname:firstname,
+        lastname:lastname,
+        mail:gmail                 
+    })
+    res.send("form submitted....!")
 })
 
 app.use(express.static('public/css/'))  //css lai path deko for access css file

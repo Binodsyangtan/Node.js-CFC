@@ -10,3 +10,5 @@ day- 6
 day-7
   -ajaa form bata data upload garan sikyo sql ma kasari garni saab heryou imp class aajako 
   -column new halda table ma false bata true garni and feri false garni true gare rakhe vane haleko data store hudaina
+
+note:- table ma j rakhe xa name like capitle and small firstName or firstname yesari xa vane html ma same as table jhai hunu paryou natra null vanera error falxa

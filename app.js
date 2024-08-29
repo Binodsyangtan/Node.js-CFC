@@ -1,6 +1,11 @@
 const express = require('express')
 require('dotenv').config()   //yo code chai jun project ma ni rakhda hunxa
 const { blogs,forms } = require('./model/index')
+// const multer = require('./middleware/multerConfig').multer
+// const storage = require('./middleware/multerConfig').storage
+const{multer,storage} = require('./middleware/multerConfig')
+const upload = multer({storage:storage})
+
 const app = express()
 
 app.use(express.urlencoded({extended: true}))  //node bata front banauda yo code rakhnu parxa jailey like ejs use gare vane

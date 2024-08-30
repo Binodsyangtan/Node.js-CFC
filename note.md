@@ -17,3 +17,11 @@ day - 9
   -we learn about middle ware kasari file transform hunxa 
   -middleware ma 
       -multer vanne package use garera file handle garni sikiyo 
+
+
+day-10 
+  -app.post ma garara middle ma middleware rakhen
+   upload.single('image') //image ma j name xa aru file ko tai rakhnu parxa natra middlewar not expect vanni error aauxa
+
+   -multerCOngig.js ko code and bujhiyo kasari garni vanera 
+  -Date.now() le user le same file haleni replace first ko file lai replace nagarera date wise file lai store gardinxa 

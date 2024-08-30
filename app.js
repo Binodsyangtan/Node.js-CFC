@@ -21,7 +21,7 @@ app.get("/create",(req,res)=>{
     res.render('create.ejs')
 })
 
-app.post('/create',async(req,res)=>{
+app.post('/create',upload.single('image'),async(req,res)=>{
     const {title,subtitle,description} = req.body
       await blogs.create({
         title : title,
@@ -36,12 +36,13 @@ app.get("/form",(req,res)=>{
     res.render('form.ejs')
 })
 
-app.post('/form',async(req,res)=>{
-     const{firstname,lastname,gmail} =req.body
+app.post('/form',upload.single('image') ,async(req,res)=>{
+     const{firstname,lastname,gmail,image} =req.body
       await forms.create({
         firstname:firstname,
         lastname:lastname,
-        mail:gmail                 
+        mail:gmail,
+        image:image                 
     })
     res.send("form submitted....!")
 })

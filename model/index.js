@@ -32,10 +32,10 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 
 
-// db.blogs = blogModel(sequelize,DataTYpes)
-db.forms = formMOdel(sequelize,DataTypes)
+db.blogs = makeBlogTable(sequelize,DataTypes)
+// db.forms = formMOdel(sequelize,DataTypes)
 
-db.sequelize.sync({force : false}).then(()=>{
+db.sequelize.sync({force :false}).then(()=>{
     console.log("Synced done!!");
     
 })

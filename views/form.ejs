@@ -9,7 +9,7 @@
 <body>
 
 <div class="form-container">
-    <form action="/form" method="post">
+    <form action="/form" method="post" enctype="multipart/form-data">
         <h2>Sign Up</h2>
 
         <div class="form-group">
@@ -25,6 +25,10 @@
         <div class="form-group">
             <label for="gmail">Gmail</label>
             <input type="email" id="gmail" name="gmail" placeholder="Enter your Gmail" required pattern="[a-z0-9._%+-]+@gmail.com" title="Please enter a valid Gmail address">
+        </div>
+        <div class="form-group">
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" >
         </div>
 
         <div class="form-group">

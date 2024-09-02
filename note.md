@@ -25,3 +25,10 @@ day-10
 
    -multerCOngig.js ko code and bujhiyo kasari garni vanera 
   -Date.now() le user le same file haleni replace first ko file lai replace nagarera date wise file lai store gardinxa 
+
+
+day-11
+
+    -file lai php ma kasari display garni req.file.filename ma file aairako hunxa
+
+    -READ OPERATION 

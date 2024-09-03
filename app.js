@@ -94,6 +94,29 @@ app.get("/login",(req,res)=>{
   res.render("login")
 })
 
+app.post("/login", async (req,res)=>{
+  const {email, password} =req.body
+  //check wheter that email exist or not in users table
+   const data = await users.findAll({
+    where : {
+      email: email
+    }
+  }) 
+  if(data.length == 0 ){
+    res.send ("no user with that email")
+  }else{
+    //now check password
+    const isMatched = bcrypt.compareSync(password,data[0].password)
+    if(isMatched){
+      res.send ("logged in succes ")
+
+    }else{
+      res.send("invalid password")
+    }
+  }
+
+})
+
 
 
 app.use(express.static("public/css/")); //css lai path deko for access css file

@@ -1,12 +1,13 @@
 const express = require("express");
 require("dotenv").config(); //yo code chai jun project ma ni rakhda hunxa
-const { blogs, forms } = require("./model/index");
+const { blogs, forms, users } = require("./model/index");
 // const multer = require('./middleware/multerConfig').multer
 // const storage = require('./middleware/multerConfig').storage
 const { multer, storage } = require("./middleware/multerConfig");
 const { render } = require("ejs");
 const { where } = require("sequelize");
 const upload = multer({ storage: storage });
+const bcrypt = require("bcrypt")
 
 const app = express();
 
@@ -75,6 +76,25 @@ app.post("/form", upload.single("image"), async (req, res) => {
   });
   res.send("form submitted....!");
 });
+ 
+app.get("/register",(req,res)=>{
+  res.render("register")
+})
+app.post("/register",async (req,res)=>{
+  const{username,email,password} =req.body
+   await users.create({  //users lekheko xa db.user in index so j xa tai use garni 
+    username: username,
+    email: email,
+    password:bcrypt.hashSync(password,8)
+  });
+  res.redirect("/login") //new page ma falnu xa vane redirect user garinxa 
+})
+
+app.get("/login",(req,res)=>{
+  res.render("login")
+})
+
+
 
 app.use(express.static("public/css/")); //css lai path deko for access css file
 app.use(express.static("./storage/"))

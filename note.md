@@ -31,4 +31,8 @@ day-11
 
     -file lai php ma kasari display garni req.file.filename ma file aairako hunxa
 
-    -READ OPERATION 
+    -READ OPERATION
+
+day 12 
+- blog selection form table 
+- kasari delete garni blog heriyo

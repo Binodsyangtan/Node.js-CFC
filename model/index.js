@@ -2,6 +2,7 @@ const {Sequelize,DataTypes} = require('sequelize');
 const databaseConfig = require('../config/dbConfig');
 const makeBlogTable = require('./blogModel');
 const formMOdel = require('./formModel');
+const makeUserTable = require('./userModel');
 
 
 
@@ -34,6 +35,7 @@ db.sequelize = sequelize
 
 db.blogs = makeBlogTable(sequelize,DataTypes)
 // db.forms = formMOdel(sequelize,DataTypes)
+db.users = makeUserTable(sequelize,DataTypes)
 
 db.sequelize.sync({force :false}).then(()=>{
     console.log("Synced done!!");
